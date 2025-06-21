@@ -13,9 +13,10 @@ class ExternalApiService
       return Cache::get('usdToRsdRate');
     }
 
-    $key = env('VITE_CURRENCY_API_KEY');
+    $key = env('CURRENCY_FREAKS_API_KEY');
 
     $response = Http::get("https://api.currencyfreaks.com/v2.0/rates/latest?apikey=$key&symbols=RSD");
+
     if ($response->successful()) {
       $data = $response->json();
 
@@ -27,16 +28,15 @@ class ExternalApiService
 
   public function fetchGoldPrice()
   {
-
     if (Cache::has('goldPrice')) {
       return Cache::get('goldPrice');
     }
 
-    $key = env('VITE_GOLD_API_KEY');
+    $key = env('GOLD_API_KEY');
 
     $response = Http::withHeaders([
       'x-access-token' => $key,
-    ])->post('https://www.goldapi.io/api/XAU/USD');
+    ])->get('https://www.goldapi.io/api/XAU/USD');
 
     if ($response->successful()) {
       $data = $response->json();
@@ -44,6 +44,6 @@ class ExternalApiService
       Cache::put('goldPrice', $data['price_gram_24k'], 60 * 60 * 24);
     }
 
-    return $data['price_gram_24k'] ?? 107;
+    return $data['price_gram_24k'] ?? 108.29;
   }
 }

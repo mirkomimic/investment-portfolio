@@ -27,7 +27,7 @@ export default function Home({
         <img
           src="small-gold-bars.jpg"
           alt=""
-          className="absolute -z-20 h-screen w-full"
+          className="absolute -z-20 h-[calc(100vh+56px)] w-full"
         />
 
         <Header />
