@@ -42,7 +42,7 @@ export const Hero = ({
     {
       icon: <ChartLine className="absolute left-0 top-0 m-3 text-yellow-300" />,
       info: 'Price',
-      value: goldPriceInDin,
+      value: goldPriceInRsd,
     },
     {
       icon: (
