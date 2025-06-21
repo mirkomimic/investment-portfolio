@@ -5,18 +5,24 @@ import { Hero } from '@/Sections/Hero';
 import { PageProps } from '@/types';
 import { Head } from '@inertiajs/react';
 
+type HomePageProps = {
+  laravelVersion: string;
+  phpVersion: string;
+  usdToRsdRate: number;
+  goldPrice: number;
+  goldAmount: number;
+  goldPaid: number;
+};
+
 export default function Home({
   auth,
   laravelVersion,
   phpVersion,
   usdToRsdRate = 117,
   goldPrice,
-}: PageProps<{
-  laravelVersion: string;
-  phpVersion: string;
-  usdToRsdRate: number;
-  goldPrice: number;
-}>) {
+  goldAmount,
+  goldPaid,
+}: PageProps<HomePageProps>) {
   return (
     <>
       <Head title="Home" />
@@ -32,7 +38,12 @@ export default function Home({
 
         <Header />
         <main className="mx-auto mt-16 min-h-screen w-full">
-          <Hero usdToRsdRate={usdToRsdRate} goldPrice={goldPrice} />
+          <Hero
+            usdToRsdRate={usdToRsdRate}
+            goldPrice={goldPrice}
+            goldAmount={goldAmount}
+            goldPaid={goldPaid}
+          />
         </main>
 
         <Footer laravelVersion={laravelVersion} phpVersion={phpVersion} />

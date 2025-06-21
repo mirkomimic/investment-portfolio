@@ -11,28 +11,21 @@ import {
 
 gsap.registerPlugin(useGSAP, SplitText);
 
-const myGold = [
-  {
-    amount: 20,
-    paid: 234000,
-  },
-  {
-    amount: 20,
-    paid: 233500,
-  },
-];
+type HeroPageProps = {
+  usdToRsdRate: number;
+  goldPrice: number;
+  goldAmount: number;
+  goldPaid: number;
+};
 
 export const Hero = ({
   usdToRsdRate,
   goldPrice,
-}: {
-  usdToRsdRate: number;
-  goldPrice: number;
-}) => {
-  const goldAmount = myGold.reduce((acc, item) => acc + item.amount, 0);
-  const goldPaid = myGold.reduce((acc, item) => acc + item.paid, 0);
-  const goldPriceInDin = goldPrice * usdToRsdRate;
-  const currentGoldValue = goldAmount * goldPriceInDin;
+  goldAmount,
+  goldPaid,
+}: HeroPageProps) => {
+  const goldPriceInRsd = goldPrice * usdToRsdRate;
+  const currentGoldValue = goldAmount * goldPriceInRsd;
   const profit = currentGoldValue - goldPaid;
 
   const items = [
@@ -75,7 +68,12 @@ export const Hero = ({
     });
   });
 
-  if (goldPrice === null || usdToRsdRate === null) {
+  if (
+    goldPrice === null ||
+    usdToRsdRate === null ||
+    goldAmount === null ||
+    goldPaid === null
+  ) {
     return <div>Loading...</div>;
   }
 
