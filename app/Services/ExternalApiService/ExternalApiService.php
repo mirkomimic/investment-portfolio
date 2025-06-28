@@ -44,6 +44,6 @@ class ExternalApiService
       Cache::put('goldPrice', $data['price_gram_24k'], 60 * 60 * 24);
     }
 
-    return $data['price_gram_24k'] ?? 108.29;
+    return $data['price_gram_24k'] ?? 106.86;
   }
 }

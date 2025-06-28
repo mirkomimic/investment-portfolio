@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MetalsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,8 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])
   ->name('home');
+
+Route::resource('metals', MetalsController::class)->only(['store']);
 
 Route::get('/dashboard', function () {
   return Inertia::render('Dashboard');

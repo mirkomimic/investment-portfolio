@@ -1,21 +1,30 @@
 import InvestmentsInfoCard from '@/Components/Cards/InvestmentsInfoCard';
+import { columns } from '@/Components/DataTables/MetalsDataTable/columns';
+import { DataTable } from '@/Components/DataTables/MetalsDataTable/data-table';
+import { CustomDialog } from '@/Components/Dialogs/CustomDialog';
+import { AddMetalForm } from '@/Components/Forms/AddMetalForm';
+import { Button } from '@/Components/ui/button';
+import { DialogContextProvider } from '@/context/DialogContextProvider';
+import { Metals } from '@/types/custom';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import {
   ChartLine,
   DollarSign,
   HandCoins,
+  Plus,
   Receipt,
   Weight,
 } from 'lucide-react';
 
 gsap.registerPlugin(useGSAP, SplitText);
 
-type HeroPageProps = {
+type HeroProps = {
   usdToRsdRate: number;
   goldPrice: number;
   goldAmount: number;
   goldPaid: number;
+  metals: Metals[];
 };
 
 export const Hero = ({
@@ -23,7 +32,8 @@ export const Hero = ({
   goldPrice,
   goldAmount,
   goldPaid,
-}: HeroPageProps) => {
+  metals,
+}: HeroProps) => {
   const goldPriceInRsd = goldPrice * usdToRsdRate;
   const currentGoldValue = goldAmount * goldPriceInRsd;
   const profit = currentGoldValue - goldPaid;
@@ -88,6 +98,25 @@ export const Hero = ({
             value={item.value}
           />
         ))}
+      </div>
+
+      <div className="mx-auto mt-10 w-4/6">
+        <DialogContextProvider>
+          <CustomDialog
+            title="Add"
+            button={
+              <Button
+                variant="outline"
+                className="mb-3 border-yellow-300 bg-slate-900/80"
+              >
+                <Plus /> Add
+              </Button>
+            }
+          >
+            <AddMetalForm />
+          </CustomDialog>
+        </DialogContextProvider>
+        <DataTable columns={columns} data={metals} />
       </div>
     </section>
   );
