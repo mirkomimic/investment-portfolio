@@ -34,8 +34,8 @@ const Header = () => {
       ref={headerRef}
       className="fixed top-0 z-10 h-14 w-full uppercase backdrop-blur-2xl"
     >
-      <div className="container mx-auto grid h-full grid-cols-2 items-center gap-2 lg:grid-cols-3">
-        <Link href="/" className="w-10 font-icon text-xl font-bold">
+      <div className="container mx-auto grid h-full grid-cols-2 items-center gap-2 font-bold lg:grid-cols-3">
+        <Link href="/" className="w-10">
           <img src="/golden-crown.png" />
         </Link>
 
@@ -45,7 +45,7 @@ const Header = () => {
           {auth.user ? (
             <Link
               href={route('dashboard')}
-              className="rounded-md py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+              className="rounded-md py-2 text-sm font-bold text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
             >
               Dashboard
             </Link>
@@ -53,13 +53,13 @@ const Header = () => {
             <>
               <Link
                 href={route('login')}
-                className="rounded-md py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                className="rounded-md py-2 text-sm font-bold text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
               >
                 Log in
               </Link>
               <Link
                 href={route('register')}
-                className="rounded-md py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                className="rounded-md py-2 text-sm font-bold text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
               >
                 Register
               </Link>

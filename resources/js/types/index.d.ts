@@ -11,7 +11,4 @@ export type PageProps<
   auth: {
     user: User;
   };
-  flash: {
-    message: string;
-  };
 };

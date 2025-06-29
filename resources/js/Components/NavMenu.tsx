@@ -26,13 +26,13 @@ export const NavMenu = () => {
               href="/"
               className="bg-transparent hover:bg-transparent hover:text-slate-700 dark:hover:text-slate-200"
             >
-              Blog
+              <span className="font-bold">Blog</span>
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent uppercase hover:bg-transparent hover:text-slate-700 data-[state=open]:hover:bg-transparent data-[state=open]:focus:bg-accent dark:hover:text-slate-200">
-            Menu
+            <span className="font-bold">Menu</span>
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4">
@@ -56,7 +56,7 @@ export const NavMenu = () => {
               href="/"
               className="bg-transparent hover:bg-transparent hover:text-slate-700 dark:hover:text-slate-200"
             >
-              Contact
+              <span className="font-bold">Contact</span>
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>

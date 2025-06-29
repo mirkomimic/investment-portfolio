@@ -2,10 +2,10 @@ import { BlurredDot } from '@/Components/BlurredDot';
 import { Footer } from '@/Components/Footer';
 import Header from '@/Components/Header';
 import { Toaster } from '@/Components/ui/sonner';
-import { HomePageContext } from '@/hooks/useHomePageContext';
+import { HomePageContext } from '@/context/HomePageContext';
 import { Hero } from '@/Sections/Hero';
 import { PageProps } from '@/types';
-import { Metals } from '@/types/custom';
+import { Metals, MetalTypes } from '@/types/custom';
 import { Head } from '@inertiajs/react';
 
 type HomePageProps = {
@@ -16,7 +16,7 @@ type HomePageProps = {
   goldAmount: number;
   goldPaid: number;
   metals: Metals[];
-  metalTypes: [];
+  metalTypes: MetalTypes[];
 };
 
 export default function Home({
@@ -49,7 +49,6 @@ export default function Home({
 
         <img
           src="small-gold-bars.jpg"
-          alt=""
           className="absolute -z-20 h-[calc(100vh+56px)] w-full"
         />
 

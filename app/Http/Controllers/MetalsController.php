@@ -16,6 +16,6 @@ class MetalsController extends Controller
     $metal->paid = $request->paid;
     $metal->save();
 
-    return redirect()->back()->with('message', 'success');
+    return redirect()->back();
   }
 }
